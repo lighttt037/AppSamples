@@ -1,4 +1,4 @@
-# Profit2Pitfall
+# Task-Oriented Scam Apps
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.8+-blue.svg" alt="Python Version">
@@ -65,8 +65,8 @@ Task-oriented scam apps represent a growing threat in mobile ecosystems. This to
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/profit2pitfall.git
-cd profit2pitfall
+git clone https://github.com/lighttt037/AppSamples.git
+cd AppSamples
 
 # Create virtual environment (recommended)
 python -m venv venv
@@ -150,7 +150,7 @@ python -m src.network cloud \
 ## 📁 Project Structure
 
 ```
-profit2pitfall/
+AppSamples/
 ├── src/                          # Source code
 │   ├── __init__.py
 │   ├── network/                  # Network evasion detection
