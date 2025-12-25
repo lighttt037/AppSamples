@@ -123,7 +123,7 @@ See [prompts/app_classification_prompt.md](prompts/app_classification_prompt.md)
 
 ## 📊 Dataset
 
-A partial dataset is included in this repository. The full dataset (~100GB, expanding to 2600+ samples) is available for academic research purposes.
+A partial dataset is included in this repository. The full dataset (~100GB, currently 2600+ samples and expanding) is available for academic research purposes.
 
 ### Request Full Dataset
 
