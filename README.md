@@ -12,8 +12,6 @@ A toolkit for analyzing mobile **task-oriented scam applications**.
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Project Structure](#project-structure)
@@ -21,38 +19,7 @@ A toolkit for analyzing mobile **task-oriented scam applications**.
 - [License](#license)
 - [Contact](#contact)
 
----
 
-## 🔍 Overview
-
-Task-oriented scam apps represent a growing threat in mobile ecosystems. This toolkit provides analysis tools for:
-
-- **Network Evasion Detection**: Identify domain rotation and cloud-based loading techniques
-- **Certificate Analysis**: Analyze certificates across applications
-- **Permission Analysis**: Detect suspicious permission patterns
-- **Code Similarity Analysis**: Find related app families
-
----
-
-## ✨ Features
-
-### Network Analysis
-
-| Module | Description |
-|--------|-------------|
-| **Domain Rotation Detection** | Detect algorithmically generated rotating domains |
-| **Cloud Loading Detection** | Identify remote configuration loading patterns |
-| **Traffic Parsing** | PCAP and MITM response parsing |
-
-### Static Analysis Tools
-
-- 📦 **APK Decompilation**: Batch JADX processing
-- 🔐 **Certificate Extraction**: SHA-256/SHA-1/MD5 fingerprinting
-- 📱 **Permission Analysis**: Dangerous permission detection
-- 🔗 **URL/Domain Extraction**: Extract URLs from code and traffic
-- 🌐 **Traffic Analysis**: PCAP parsing and MITM response analysis
-
----
 
 ## 🚀 Installation
 
@@ -88,64 +55,6 @@ For faster string matching:
 pip install python-Levenshtein
 ```
 
----
-
-## ⚡ Quick Start
-
-### Detect Domain Rotation
-
-```python
-from src.network import DomainRotationDetector, DetectionConfig
-
-# Initialize detector
-config = DetectionConfig(edit_distance_threshold=6)
-detector = DomainRotationDetector(config)
-
-# Analyze traffic from two time points
-result = detector.detect_from_files(
-    file_t1="traffic/app_day1.txt",
-    file_t2="traffic/app_day2.txt"
-)
-
-if result.detected:
-    print(f"Domain rotation detected!")
-    for pair in result.evidence['rotating_pairs']:
-        print(f"  {pair['domain_t1']} -> {pair['domain_t2']}")
-```
-
-### Detect Cloud Loading
-
-```python
-from src.network import CloudConfigDetector, MitmResponseParser
-
-# Parse MITM traffic
-parser = MitmResponseParser()
-responses = parser.parse_mitm_file("mitm_output.txt")
-
-# Detect cloud loading
-detector = CloudConfigDetector()
-result = detector.detect(responses)
-
-if result.detected:
-    print(f"Cloud loading detected with confidence: {result.confidence:.2f}")
-```
-
-### Command Line Usage
-
-```bash
-# Detect domain rotation across dataset
-python -m src.network rotation \
-    --dir-t1 /path/to/traffic/day1 \
-    --dir-t2 /path/to/traffic/day2 \
-    --output results.json
-
-# Detect cloud loading
-python -m src.network cloud \
-    --mitm-dir /path/to/mitm/output \
-    --output cloud_results.json
-```
-
----
 
 ## 📁 Project Structure
 
@@ -214,7 +123,7 @@ See [prompts/app_classification_prompt.md](prompts/app_classification_prompt.md)
 
 ## 📊 Dataset
 
-A partial dataset is included in this repository. The full dataset (~100GB, 2600+ samples) is available for academic research purposes.
+A partial dataset is included in this repository. The full dataset (~100GB, expanding to 2600+ samples) is available for academic research purposes.
 
 ### Request Full Dataset
 
@@ -250,7 +159,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📬 Contact
 
 - **Dataset Requests**: [yc_guo@stu.hit.edu.cn](mailto:yc_guo@stu.hit.edu.cn)
-- **Bug Reports**: Please open an issue on GitHub
 
 ---
 
